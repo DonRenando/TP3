@@ -49,7 +49,7 @@ public class ListeUtilisateursImpl implements ListeUtilisateurs {
     @Override
     public int obtenirNumeroLigneUtilisateur(String login) {
         for (int i = 0; i < liste.size(); i++)
-            if (liste.get(i).equals(login))
+            if (liste.get(i).getLogin().equals(login))
                 return i;
 
         return -1; // Bredouille
