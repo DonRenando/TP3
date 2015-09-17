@@ -7,11 +7,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 
-import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
 public class Administration extends JFrame {
@@ -29,13 +25,33 @@ public class Administration extends JFrame {
 
         JMenuBar menubar = new JMenuBar();
 
+
         JMenu file = new JMenu("Fichier");
         JMenu gestion = new JMenu("Gestion");
+
+        JMenuItem ajouter = new JMenuItem("Ajouter");
+        JMenuItem supprimer = new JMenuItem("Supprimer");
+
+        JMenuItem propos = new JMenuItem("A propos");
+        JMenuItem quitter = new JMenuItem("Quitter");
+
         file.setMnemonic(KeyEvent.VK_F);
         gestion.setMnemonic(KeyEvent.VK_G);
 
+
+
         menubar.add(file);
         menubar.add(gestion);
+
+        file.add(ajouter);
+        file.add(supprimer);
+
+        gestion.add(propos);
+        gestion.add(quitter);
+
+
+        gestion.add(propos);
+        gestion.add(quitter);
         setJMenuBar(menubar);
 
         GridLayout mainGrid = new GridLayout(2, 3);
