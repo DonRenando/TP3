@@ -24,7 +24,7 @@ public class ListenerConnection implements ActionListener{
                 f.getUserList().obtenirNumeroLigneUtilisateur(
                         f.getLogin().getText()));
             if(user.getRole().equals(Personne.ADMINISTRATEUR))
-                new Administration(f.getUserList(),user,f.getFileSave());
+                new FenetreAdministration(f.getUserList(),user,f.getFileSave());
             else if (user.getRole().equals(Personne.STATISTICIEN))
                 new Statistique(f.getUserList(),user,f.getFileSave());
             else JOptionPane.showMessageDialog(null, "Votre role n'est pas encore implément !Z");

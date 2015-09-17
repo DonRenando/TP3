@@ -11,7 +11,7 @@ import java.io.File;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
-public class Administration extends JFrame {
+public class FenetreAdministration extends JFrame {
     private ListeUtilisateursImpl userlist;
     private Utilisateur userConnected;
 
@@ -23,9 +23,9 @@ public class Administration extends JFrame {
     private File fileSave;
 
    private PanelAjouter P1;
-    private Administration p1;
+    private FenetreAdministration p1;
 
-    public Administration(ListeUtilisateursImpl userlist, Utilisateur userConnected, File fileSave) {
+    public FenetreAdministration(ListeUtilisateursImpl userlist, Utilisateur userConnected, File fileSave) {
         super("Application");
 
         this.userlist = userlist;

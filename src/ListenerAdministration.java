@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
  * Created by sidya on 17/09/15.
  */
 public class ListenerAdministration implements ActionListener {
-    private Administration f;
-    public ListenerAdministration(Administration f) {
+    private FenetreAdministration f;
+    public ListenerAdministration(FenetreAdministration f) {
         this.f = f;
     }
 
@@ -26,7 +26,7 @@ public class ListenerAdministration implements ActionListener {
             f.getP1().annuler();
 
         else if(actionEvent.getSource().equals(f.getP1().getValider()))
-            f.getP1().valider(f.getListeUser(),f.getFileSave());
+            f.getP1().valider(f.getListeUser(), f.getFileSave());
 
         else if(actionEvent.getSource().equals(f.getSupprimer()))
             new PanelSupprimer();
