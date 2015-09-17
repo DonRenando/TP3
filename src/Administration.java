@@ -19,6 +19,9 @@ public class Administration extends JFrame {
     private JMenuItem ajouter;
     private JMenuItem supprimer;
 
+   private PanelAjouter P1;
+    private Administration p1;
+
     public Administration(ListeUtilisateursImpl userlist, Utilisateur userConnected) {
         super("Application");
 
@@ -63,13 +66,13 @@ public class Administration extends JFrame {
         mainGrid.setVgap(15); //
         main.setLayout(mainGrid);
 
-        JPanel P1 = new JPanel();
+        P1 = new PanelAjouter();
 
         TitledBorder titleNorthBorder = new TitledBorder("P1");
         titleNorthBorder.setTitleFont(new Font("Arial", Font.BOLD, 15));
         P1.setBorder(titleNorthBorder);
 
-        JPanel P2 = new JPanel();
+        JPanel P2 = new PanelSupprimer();
         P2.setBorder(BorderFactory.createLineBorder(Color.black));
 
         TitledBorder titleNorthBorder2 = new TitledBorder("P2");
@@ -121,6 +124,7 @@ public class Administration extends JFrame {
         ListenerAdministration buttonlistener = new ListenerAdministration(this);
         this.propos.addActionListener(buttonlistener);
         this.quitter.addActionListener(buttonlistener);
+        this.ajouter.addActionListener(buttonlistener);
         this.setContentPane(main);
         this.setVisible(true);
         this.setSize(1200, 600);
@@ -146,6 +150,7 @@ public class Administration extends JFrame {
         return supprimer;
     }
 
-
-    
+    public PanelAjouter getP1 () {
+        return P1;
+    }
 }

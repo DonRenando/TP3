@@ -1,6 +1,8 @@
 package metier;
 
-public class Personne {
+import java.io.Serializable;
+
+public class Personne implements Serializable{
     // Les attributs
     protected String nom, prenom;
     protected Integer role;

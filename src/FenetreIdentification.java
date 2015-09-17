@@ -22,8 +22,8 @@ public class FenetreIdentification extends JDialog {
         this.userlist = userlist;
 
         valider = new JButton("Connexion");
-        login = new JTextField();
-        mdp = new JPasswordField();
+        login = new JTextField("paul.durant");
+        mdp = new JPasswordField("tototo");
         global = new JPanel();
 
         TitledBorder title = new TitledBorder("Connexion à l'Application");

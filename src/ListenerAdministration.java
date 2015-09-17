@@ -20,9 +20,12 @@ public class ListenerAdministration implements ActionListener {
             System.exit(0);
 
         else if(actionEvent.getSource().equals(f.getAjouter()))
-            new FenetreAjouter();
+            f.getP1().showForm(this);
+
+        else if(actionEvent.getSource().equals(f.getP1().getAnnuler()))
+            f.getP1().annuler();
 
         else if(actionEvent.getSource().equals(f.getSupprimer()))
-            new FenetreSupprimer();
+            new PanelSupprimer();
     }
 }
