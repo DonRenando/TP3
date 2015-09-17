@@ -34,4 +34,6 @@ public class Personne {
     public String toString() {
         return nom + " " + prenom + " avec rôle " + role;
     }
+
+    public Integer getRole() {return role;}
 }

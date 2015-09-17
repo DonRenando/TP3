@@ -1,3 +1,6 @@
+import metier.Personne;
+import metier.Utilisateur;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,14 +20,18 @@ public class ListenerConnection implements ActionListener{
         if(f.getUserList().verifierIdentite(f.getLogin().getText(), new String(f.getMdp().getPassword())))
         {
             f.setVisible(false);
-            new Administration(f.getUserList(),
-                    f.getUserList().obtenirUtilisateur(
-                            f.getUserList().obtenirNumeroLigneUtilisateur(
-                                    f.getLogin().getText())));
+            Utilisateur user = f.getUserList().obtenirUtilisateur(
+                f.getUserList().obtenirNumeroLigneUtilisateur(
+                        f.getLogin().getText()));
+            if(user.getRole().equals(Personne.ADMINISTRATEUR))
+                new Administration(f.getUserList(),user);
+            else if (user.getRole().equals(Personne.STATISTICIEN))
+                new Statistique(f.getUserList(),user);
+            else JOptionPane.showMessageDialog(null, "Votre role n'est pas encore implément !Z");
         }
         else
         {
-            JOptionPane.showMessageDialog(null, "Identifiant ou mot de passe invalide");
+            JOptionPane.showMessageDialog(null, "Identifiant ou mot de passe invalide !");
         }
     }
 }
