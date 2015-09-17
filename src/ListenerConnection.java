@@ -17,7 +17,10 @@ public class ListenerConnection implements ActionListener{
         if(f.getUserList().verifierIdentite(f.getLogin().getText(), new String(f.getMdp().getPassword())))
         {
             f.setVisible(false);
-            new Administration();
+            new Administration(f.getUserList(),
+                    f.getUserList().obtenirUtilisateur(
+                            f.getUserList().obtenirNumeroLigneUtilisateur(
+                                    f.getLogin().getText())));
         }
         else
         {

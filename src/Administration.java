@@ -1,3 +1,6 @@
+import metier.ListeUtilisateursImpl;
+import metier.Utilisateur;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -12,10 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 public class Administration extends JFrame {
+    private ListeUtilisateursImpl userlist;
+    private Utilisateur userConnected;
 
-    public Administration() {
-
+    public Administration(ListeUtilisateursImpl userlist, Utilisateur userConnected) {
         super("Application");
+
+        this.userlist = userlist;
+        this.userConnected = userConnected;
 
         JPanel main = new JPanel();
         main.setLayout(new BorderLayout());
