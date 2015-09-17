@@ -15,6 +15,9 @@ public class Administration extends JFrame {
     private Utilisateur userConnected;
 
     private JMenuItem propos;
+    private JMenuItem quitter;
+    private JMenuItem ajouter;
+    private JMenuItem supprimer;
 
     public Administration(ListeUtilisateursImpl userlist, Utilisateur userConnected) {
         super("Application");
@@ -31,11 +34,11 @@ public class Administration extends JFrame {
         JMenu file = new JMenu("Fichier");
         JMenu gestion = new JMenu("Gestion");
 
-        JMenuItem ajouter = new JMenuItem("Ajouter");
-        JMenuItem supprimer = new JMenuItem("Supprimer");
+        ajouter = new JMenuItem("Ajouter");
+        supprimer = new JMenuItem("Supprimer");
 
         propos = new JMenuItem("A propos");
-        JMenuItem quitter = new JMenuItem("Quitter");
+        quitter = new JMenuItem("Quitter");
 
         file.setMnemonic(KeyEvent.VK_F);
         gestion.setMnemonic(KeyEvent.VK_G);
@@ -117,16 +120,32 @@ public class Administration extends JFrame {
         this.addWindowListener(new ListenerCloseWindow());
         ListenerAdministration buttonlistener = new ListenerAdministration(this);
         this.propos.addActionListener(buttonlistener);
+        this.quitter.addActionListener(buttonlistener);
         this.setContentPane(main);
         this.setVisible(true);
         this.setSize(1200, 600);
     }
 
-    public Object getAPropos() {
+    public JMenuItem getQuitter() {
+        return quitter;
+    }
+
+    public JMenuItem getAPropos() {
         return propos;
+    }
+
+    public JMenuItem getAjouter() {
+        return ajouter;
     }
 
     public Utilisateur getUserConnected() {
         return userConnected;
     }
+
+    public JMenuItem getSupprimer() {
+        return supprimer;
+    }
+
+
+    
 }

@@ -15,6 +15,14 @@ public class ListenerAdministration implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if(actionEvent.getSource().equals(f.getAPropos()))
             JOptionPane.showMessageDialog(null, f.getUserConnected());
+        
+        else if(actionEvent.getSource().equals(f.getQuitter()))
+            System.exit(0);
 
+        else if(actionEvent.getSource().equals(f.getAjouter()))
+            new FenetreAjouter();
+
+        else if(actionEvent.getSource().equals(f.getSupprimer()))
+            new FenetreSupprimer();
     }
 }
