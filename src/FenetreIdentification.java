@@ -45,6 +45,8 @@ public class FenetreIdentification extends JDialog {
         this.add(global);
 
 
+        this.addWindowListener(new ListenerCloseWindow());
+
         this.pack();
         this.setResizable(false);
         this.setLocationRelativeTo(null);

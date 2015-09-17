@@ -39,7 +39,6 @@ public class Administration extends JFrame {
         gestion.setMnemonic(KeyEvent.VK_G);
 
 
-
         menubar.add(file);
         menubar.add(gestion);
 
@@ -113,11 +112,7 @@ public class Administration extends JFrame {
         main.add(P6);
 
 
-
-
-
-
-
+        this.addWindowListener(new ListenerCloseWindow());
         this.setContentPane(main);
         this.setVisible(true);
         this.setSize(1200, 600);
