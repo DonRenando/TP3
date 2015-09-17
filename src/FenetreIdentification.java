@@ -1,6 +1,7 @@
 import metier.ListeUtilisateursImpl;
 
 import java.awt.*;
+import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -17,9 +18,11 @@ public class FenetreIdentification extends JDialog {
     private JButton valider;
     private JPasswordField mdp;
     private JPanel global;
+    private File fileSave;
 
-    public FenetreIdentification(ListeUtilisateursImpl userlist) {
+    public FenetreIdentification(ListeUtilisateursImpl userlist, File fileSave) {
         this.userlist = userlist;
+        this.fileSave = fileSave;
 
         valider = new JButton("Connexion");
         login = new JTextField("paul.durant");
@@ -61,4 +64,8 @@ public class FenetreIdentification extends JDialog {
     public JPasswordField getMdp() {return mdp;}
 
     public ListeUtilisateursImpl getUserList() {return userlist;}
+
+    public File getFileSave() {
+        return fileSave;
+    }
 }

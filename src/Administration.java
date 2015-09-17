@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
+import java.io.File;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -19,14 +20,17 @@ public class Administration extends JFrame {
     private JMenuItem ajouter;
     private JMenuItem supprimer;
 
+    private File fileSave;
+
    private PanelAjouter P1;
     private Administration p1;
 
-    public Administration(ListeUtilisateursImpl userlist, Utilisateur userConnected) {
+    public Administration(ListeUtilisateursImpl userlist, Utilisateur userConnected, File fileSave) {
         super("Application");
 
         this.userlist = userlist;
         this.userConnected = userConnected;
+        this.fileSave = fileSave;
 
         JPanel main = new JPanel();
         main.setLayout(new BorderLayout());
@@ -152,5 +156,13 @@ public class Administration extends JFrame {
 
     public PanelAjouter getP1 () {
         return P1;
+    }
+
+    public ListeUtilisateursImpl getListeUser() {
+        return userlist;
+    }
+
+    public File getFileSave() {
+        return fileSave;
     }
 }

@@ -25,6 +25,9 @@ public class ListenerAdministration implements ActionListener {
         else if(actionEvent.getSource().equals(f.getP1().getAnnuler()))
             f.getP1().annuler();
 
+        else if(actionEvent.getSource().equals(f.getP1().getValider()))
+            f.getP1().valider(f.getListeUser(),f.getFileSave());
+
         else if(actionEvent.getSource().equals(f.getSupprimer()))
             new PanelSupprimer();
     }

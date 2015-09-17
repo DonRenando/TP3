@@ -1,8 +1,10 @@
 import metier.ListeUtilisateursImpl;
 import metier.Personne;
+import metier.Utilisateur;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 public class PanelAjouter extends JPanel {
     private JLabel labelNom;
@@ -70,21 +72,46 @@ public class PanelAjouter extends JPanel {
         this.add(buttonValider);
 
         buttonAnnuler.addActionListener(listener);
+        buttonValider.addActionListener(listener);
 
         this.validate();
     }
 
     public void annuler() {
-        System.out.print("lol");
         this.removeAll();
         this.repaint();
     }
 
-    public JButton getAjouter() {
-        return buttonValider;
+    public void valider(ListeUtilisateursImpl userList, File f) {
+        Integer role = null;
+        switch (comboBoxRole.getSelectedItem().toString()) {
+            case "ADMINISTRATEUR":
+                role = Personne.ADMINISTRATEUR;
+                break;
+            case "STATISTICIEN":
+                role = Personne.STATISTICIEN;
+                break;
+            case "INFIRMIER":
+                role = Personne.INFIRMIER;
+                break;
+            case "PATIENT":
+                role = Personne.PATIENT;
+                break;
+        }
+        userList.ajouterUtilisateur(new Utilisateur(textFieldNom.getText(),textFieldPrenom.getText(),
+                role,textFieldLogin.getText(),
+                new String(passwordFiledPassword.getPassword()),
+                comboBoxSuperieur.getSelectedItem() != null ?
+                        comboBoxSuperieur.getSelectedItem().toString() : ""));
+        userList.sauverListe(f);
+        annuler();
     }
 
     public JButton getAnnuler() {
         return buttonAnnuler;
+    }
+
+    public JButton getValider() {
+        return buttonValider;
     }
 }

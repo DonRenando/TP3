@@ -18,6 +18,6 @@ public class Main {
         else
             userList.chargerListe(f);
 
-        new FenetreIdentification(userList);
+        new FenetreIdentification(userList, f);
     }
 }
