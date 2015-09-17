@@ -120,4 +120,8 @@ public class ListeUtilisateursImpl implements ListeUtilisateurs {
         }
     }
 
+    public List<Utilisateur> getUtilisateurs(){
+        return liste;
+    }
+
 }

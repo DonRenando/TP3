@@ -34,8 +34,34 @@ public class Personne implements Serializable{
     }
 
     public String toString() {
-        return nom + " " + prenom + " avec rôle " + role;
+        return nom + " " + prenom + " avec rôle " + Personne.getNamebyRole(role);
     }
 
     public Integer getRole() {return role;}
+
+    public static Integer getRolebyName(String name) {
+        switch (name) {
+            case "ADMINISTRATEUR":
+                return Personne.ADMINISTRATEUR;
+            case "STATISTICIEN":
+                return Personne.STATISTICIEN;
+            case "INFIRMIER":
+                return Personne.INFIRMIER;
+            case "PATIENT":
+                return Personne.PATIENT;
+        }
+        return null;
+    }
+
+    public static String getNamebyRole(Integer num) {
+        if (num.equals(Personne.ADMINISTRATEUR))
+                return "ADMINISTRATEUR";
+        if (num.equals(Personne.STATISTICIEN))
+                return "STATISTICIEN";
+        if (num.equals(Personne.INFIRMIER))
+                return "INFIRMIER";
+        if (num.equals(Personne.PATIENT))
+                return "PATIENT";
+        return null;
+    }
 }

@@ -20,7 +20,7 @@ public class ListenerAdministration implements ActionListener {
             System.exit(0);
 
         else if(actionEvent.getSource().equals(f.getAjouter()))
-            f.getP1().showForm(this);
+            f.getP1().showForm(this, f.getListeUser());
 
         else if(actionEvent.getSource().equals(f.getP1().getAnnuler()))
             f.getP1().annuler();
@@ -29,6 +29,13 @@ public class ListenerAdministration implements ActionListener {
             f.getP1().valider(f.getListeUser(), f.getFileSave());
 
         else if(actionEvent.getSource().equals(f.getSupprimer()))
-            new PanelSupprimer();
+            f.getP2().showForm(this, f.getListeUser());
+
+        else if(actionEvent.getSource().equals(f.getP2().getAnnuler()))
+            f.getP2().annuler();
+
+        else if(actionEvent.getSource().equals(f.getP2().getSupprimer()))
+            f.getP2().valider(f.getListeUser(), f.getFileSave());
+
     }
 }

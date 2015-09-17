@@ -19,15 +19,18 @@ public class ListenerConnection implements ActionListener{
     public void actionPerformed(ActionEvent actionEvent) {
         if(f.getUserList().verifierIdentite(f.getLogin().getText(), new String(f.getMdp().getPassword())))
         {
-            f.setVisible(false);
+
             Utilisateur user = f.getUserList().obtenirUtilisateur(
                 f.getUserList().obtenirNumeroLigneUtilisateur(
                         f.getLogin().getText()));
             if(user.getRole().equals(Personne.ADMINISTRATEUR))
+            {
+                f.setVisible(false);
                 new FenetreAdministration(f.getUserList(),user,f.getFileSave());
-            else if (user.getRole().equals(Personne.STATISTICIEN))
-                new Statistique(f.getUserList(),user,f.getFileSave());
-            else JOptionPane.showMessageDialog(null, "Votre role n'est pas encore implément !Z");
+            }
+            /*else if (user.getRole().equals(Personne.STATISTICIEN))
+                new Statistique(f.getUserList(),user,f.getFileSave());*/
+            else JOptionPane.showMessageDialog(null, "Votre role n'est pas encore implément !");
         }
         else
         {

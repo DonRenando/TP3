@@ -37,4 +37,5 @@ public class Utilisateur extends Personne {
     public void setLoginSuperieur(String loginSuperieur) {
         this.loginSuperieur = loginSuperieur;
     }
+
 }

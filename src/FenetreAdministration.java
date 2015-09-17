@@ -22,7 +22,9 @@ public class FenetreAdministration extends JFrame {
 
     private File fileSave;
 
-   private PanelAjouter P1;
+    private PanelAjouter P1;
+    private PanelSupprimer P2;
+
     private FenetreAdministration p1;
 
     public FenetreAdministration(ListeUtilisateursImpl userlist, Utilisateur userConnected, File fileSave) {
@@ -76,7 +78,7 @@ public class FenetreAdministration extends JFrame {
         titleNorthBorder.setTitleFont(new Font("Arial", Font.BOLD, 15));
         P1.setBorder(titleNorthBorder);
 
-        JPanel P2 = new PanelSupprimer();
+        P2 = new PanelSupprimer();
         P2.setBorder(BorderFactory.createLineBorder(Color.black));
 
         TitledBorder titleNorthBorder2 = new TitledBorder("P2");
@@ -129,6 +131,7 @@ public class FenetreAdministration extends JFrame {
         this.propos.addActionListener(buttonlistener);
         this.quitter.addActionListener(buttonlistener);
         this.ajouter.addActionListener(buttonlistener);
+        this.supprimer.addActionListener(buttonlistener);
         this.setContentPane(main);
         this.setVisible(true);
         this.setSize(1200, 600);
@@ -164,5 +167,9 @@ public class FenetreAdministration extends JFrame {
 
     public File getFileSave() {
         return fileSave;
+    }
+
+    public PanelSupprimer getP2() {
+        return P2;
     }
 }

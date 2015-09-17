@@ -31,7 +31,7 @@ public class PanelAjouter extends JPanel {
         super();
     }
 
-    public void showForm(ListenerAdministration listener) {
+    public void showForm(ListenerAdministration listener, ListeUtilisateursImpl userlist) {
         this.setLayout(new GridLayout(7, 2));
 
         labelNom = new JLabel("Nom : ");
@@ -48,8 +48,11 @@ public class PanelAjouter extends JPanel {
         String[] listeRole = {"ADMINISTRATEUR", "STATISTICIEN", "INFIRMIER", "PATIENT"};
         comboBoxRole = new JComboBox<String>(listeRole);
 
-        String[] listeSup = {};
-        comboBoxSuperieur = new JComboBox<String>(listeSup);
+        comboBoxSuperieur = new JComboBox();
+        comboBoxSuperieur.addItem("");
+        for (Utilisateur u : userlist.getUtilisateurs())
+            comboBoxSuperieur.addItem(u.getLogin());
+
 
         passwordFiledPassword = new JPasswordField();
 
@@ -83,21 +86,8 @@ public class PanelAjouter extends JPanel {
     }
 
     public void valider(ListeUtilisateursImpl userList, File f) {
-        Integer role = null;
-        switch (comboBoxRole.getSelectedItem().toString()) {
-            case "ADMINISTRATEUR":
-                role = Personne.ADMINISTRATEUR;
-                break;
-            case "STATISTICIEN":
-                role = Personne.STATISTICIEN;
-                break;
-            case "INFIRMIER":
-                role = Personne.INFIRMIER;
-                break;
-            case "PATIENT":
-                role = Personne.PATIENT;
-                break;
-        }
+        Integer role =  Personne.getRolebyName(comboBoxRole.getSelectedItem().toString());
+
         userList.ajouterUtilisateur(new Utilisateur(textFieldNom.getText(),textFieldPrenom.getText(),
                 role,textFieldLogin.getText(),
                 new String(passwordFiledPassword.getPassword()),
