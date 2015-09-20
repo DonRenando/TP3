@@ -5,13 +5,7 @@
  */
 package metier;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -120,7 +114,7 @@ public class ListeUtilisateursImpl implements ListeUtilisateurs {
         }
     }
 
-    public List<Utilisateur> getUtilisateurs(){
+    public List<Utilisateur> getUtilisateurs() {
         return liste;
     }
 

@@ -15,7 +15,7 @@ public class PanelAjouter extends JPanel {
     private JLabel labelSuperieur;
 
     private JTextField textFieldNom;
-    private JTextField textFieldPrenom;
+    private JTextField textFieldFirstName;
     private JTextField textFieldLogin;
 
     private JComboBox<String> comboBoxRole;
@@ -32,7 +32,7 @@ public class PanelAjouter extends JPanel {
     }
 
     public void showForm(ListenerAdministration listener, ListeUtilisateursImpl userlist) {
-        this.setLayout(new GridLayout(7, 2));
+        this.setLayout(new GridLayout(7, 2,20,5));
 
         labelNom = new JLabel("Nom : ");
         labelPrenom = new JLabel("Prenom : ");
@@ -42,7 +42,7 @@ public class PanelAjouter extends JPanel {
         labelSuperieur = new JLabel("Superieur : ");
 
         textFieldNom = new JTextField();
-        textFieldPrenom = new JTextField();
+        textFieldFirstName = new JTextField();
         textFieldLogin = new JTextField();
 
         String[] listeRole = {"ADMINISTRATEUR", "STATISTICIEN", "INFIRMIER", "PATIENT"};
@@ -62,7 +62,7 @@ public class PanelAjouter extends JPanel {
         this.add(labelNom);
         this.add(textFieldNom);
         this.add(labelPrenom);
-        this.add(textFieldPrenom);
+        this.add(textFieldFirstName);
         this.add(labelRole);
         this.add(comboBoxRole);
         this.add(labelLogin);
@@ -86,10 +86,10 @@ public class PanelAjouter extends JPanel {
     }
 
     public void valider(ListeUtilisateursImpl userList, File f) {
-        Integer role =  Personne.getRolebyName(comboBoxRole.getSelectedItem().toString());
+        Integer role = Personne.getRolebyName(comboBoxRole.getSelectedItem().toString());
 
-        userList.ajouterUtilisateur(new Utilisateur(textFieldNom.getText(),textFieldPrenom.getText(),
-                role,textFieldLogin.getText(),
+        userList.ajouterUtilisateur(new Utilisateur(textFieldNom.getText(), textFieldFirstName.getText(),
+                role, textFieldLogin.getText(),
                 new String(passwordFiledPassword.getPassword()),
                 comboBoxSuperieur.getSelectedItem() != null ?
                         comboBoxSuperieur.getSelectedItem().toString() : ""));

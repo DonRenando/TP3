@@ -19,7 +19,7 @@ public class PanelSupprimer extends JPanel{
     public void showForm(ListenerAdministration listener, ListeUtilisateursImpl userlist) {
         JPanel container = new JPanel();
         this.add(container);
-        container.setLayout(new GridLayout(2, 2));
+        container.setLayout(new GridLayout(2, 2,20,100));
 
         labelListe = new JLabel("Liste utilisateurs : ");
         comboBoxListe = new JComboBox();
@@ -28,10 +28,10 @@ public class PanelSupprimer extends JPanel{
         buttonSupprimer = new JButton("Supprimer");
         buttonAnnuler = new JButton("Annuler");
 
-        container.add(labelListe);
-        container.add(comboBoxListe);
-        container.add(buttonSupprimer);
-        container.add(buttonAnnuler);
+        container.add(labelListe,BorderLayout.NORTH);
+        container.add(comboBoxListe, BorderLayout.NORTH);
+        container.add(buttonSupprimer, BorderLayout.SOUTH);
+        container.add(buttonAnnuler, BorderLayout.SOUTH);
 
         buttonAnnuler.addActionListener(listener);
         buttonSupprimer.addActionListener(listener);

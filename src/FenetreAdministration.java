@@ -56,15 +56,12 @@ public class FenetreAdministration extends JFrame {
         menubar.add(file);
         menubar.add(gestion);
 
-        file.add(ajouter);
-        file.add(supprimer);
+        gestion.add(ajouter);
+        gestion.add(supprimer);
 
-        gestion.add(propos);
-        gestion.add(quitter);
+        file.add(propos);
+        file.add(quitter);
 
-
-        gestion.add(propos);
-        gestion.add(quitter);
         setJMenuBar(menubar);
 
         GridLayout mainGrid = new GridLayout(2, 3);
@@ -73,42 +70,11 @@ public class FenetreAdministration extends JFrame {
         main.setLayout(mainGrid);
 
         P1 = new PanelAjouter();
-
-        TitledBorder titleNorthBorder = new TitledBorder("P1");
-        titleNorthBorder.setTitleFont(new Font("Arial", Font.BOLD, 15));
-        P1.setBorder(titleNorthBorder);
-
         P2 = new PanelSupprimer();
-        P2.setBorder(BorderFactory.createLineBorder(Color.black));
-
-        TitledBorder titleNorthBorder2 = new TitledBorder("P2");
-        titleNorthBorder2.setTitleFont(new Font("Arial", Font.BOLD, 15));
-        P2.setBorder(titleNorthBorder2);
-
         JPanel P3 = new JPanel();
-
-        TitledBorder titleNorthBorder3 = new TitledBorder("P3");
-        titleNorthBorder3.setTitleFont(new Font("Arial", Font.BOLD, 15));
-        P3.setBorder(titleNorthBorder3);
-
         JPanel P4 = new JPanel();
-
-        TitledBorder titleNorthBorder4 = new TitledBorder("P4");
-        titleNorthBorder4.setTitleFont(new Font("Arial", Font.BOLD, 15));
-        P4.setBorder(titleNorthBorder4);
-
-
         JPanel P5 = new JPanel();
-
-        TitledBorder titleNorthBorder5 = new TitledBorder("P5");
-        titleNorthBorder5.setTitleFont(new Font("Arial", Font.BOLD, 15));
-        P5.setBorder(titleNorthBorder5);
-
-
         JPanel P6 = new JPanel();
-        TitledBorder titleNorthBorder6 = new TitledBorder("P6");
-        titleNorthBorder6.setTitleFont(new Font("Arial", Font.BOLD, 15));
-        P6.setBorder(titleNorthBorder6);
 
         P1.setLayout(new BorderLayout());
         P2.setLayout(new BorderLayout());
@@ -117,6 +83,42 @@ public class FenetreAdministration extends JFrame {
         P4.setLayout(new BorderLayout());
         P5.setLayout(new BorderLayout());
         P6.setLayout(new BorderLayout());
+
+        TitledBorder titleNorthBorder = new TitledBorder("P1");
+        titleNorthBorder.setTitleFont(new Font("Arial", Font.BOLD, 15));
+        P1.setBorder(titleNorthBorder);
+
+
+        P2.setBorder(BorderFactory.createLineBorder(Color.black));
+
+        TitledBorder titleNorthBorder2 = new TitledBorder("P2");
+        titleNorthBorder2.setTitleFont(new Font("Arial", Font.BOLD, 15));
+        P2.setBorder(titleNorthBorder2);
+
+
+        TitledBorder titleNorthBorder3 = new TitledBorder("P3");
+        titleNorthBorder3.setTitleFont(new Font("Arial", Font.BOLD, 15));
+        P3.setBorder(titleNorthBorder3);
+
+
+
+        TitledBorder titleNorthBorder4 = new TitledBorder("P4");
+        titleNorthBorder4.setTitleFont(new Font("Arial", Font.BOLD, 15));
+        P4.setBorder(titleNorthBorder4);
+
+
+
+
+        TitledBorder titleNorthBorder5 = new TitledBorder("P5");
+        titleNorthBorder5.setTitleFont(new Font("Arial", Font.BOLD, 15));
+        P5.setBorder(titleNorthBorder5);
+
+
+
+        TitledBorder titleNorthBorder6 = new TitledBorder("P6");
+        titleNorthBorder6.setTitleFont(new Font("Arial", Font.BOLD, 15));
+        P6.setBorder(titleNorthBorder6);
+
 
         main.add(P1);
         main.add(P2);
