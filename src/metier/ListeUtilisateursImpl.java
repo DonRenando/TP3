@@ -5,6 +5,8 @@
  */
 package metier;
 
+import javax.swing.event.TableModelListener;
+import javax.swing.table.TableModel;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,7 @@ import java.util.logging.Logger;
 /**
  * @author Jean-Christophe
  */
-public class ListeUtilisateursImpl implements ListeUtilisateurs {
+public class ListeUtilisateursImpl implements ListeUtilisateurs, TableModel{
     // Attributs
     List<Utilisateur> liste;
 
@@ -118,4 +120,48 @@ public class ListeUtilisateursImpl implements ListeUtilisateurs {
         return liste;
     }
 
+    @Override
+    public int getRowCount() {
+        return nbUtilisateurs();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return 3;
+    }
+
+    @Override
+    public String getColumnName(int i) {
+        return null;
+    }
+
+    @Override
+    public Class<?> getColumnClass(int i) {
+        return null;
+    }
+
+    @Override
+    public boolean isCellEditable(int i, int i1) {
+        return false;
+    }
+
+    @Override
+    public Object getValueAt(int i, int i1) {
+        return null;
+    }
+
+    @Override
+    public void setValueAt(Object o, int i, int i1) {
+
+    }
+
+    @Override
+    public void addTableModelListener(TableModelListener tableModelListener) {
+
+    }
+
+    @Override
+    public void removeTableModelListener(TableModelListener tableModelListener) {
+
+    }
 }

@@ -19,11 +19,16 @@ public class FenetreAdministration extends JFrame {
     private JMenuItem quitter;
     private JMenuItem ajouter;
     private JMenuItem supprimer;
+    private JMenuItem listeUtilisateurP3;
+    private JMenuItem listeUtilisateurP4;
 
     private File fileSave;
 
     private PanelAjouter P1;
     private PanelSupprimer P2;
+    private PanelListeUtilisateur P3;
+    private PanelListeUtilisateur P4;
+
 
     private FenetreAdministration p1;
 
@@ -45,6 +50,8 @@ public class FenetreAdministration extends JFrame {
 
         ajouter = new JMenuItem("Ajouter");
         supprimer = new JMenuItem("Supprimer");
+        listeUtilisateurP3 = new JMenuItem("Lister les utilisateurs dans P3");
+        listeUtilisateurP4 = new JMenuItem("Lister les utilisateurs dans P4");
 
         propos = new JMenuItem("A propos");
         quitter = new JMenuItem("Quitter");
@@ -58,7 +65,8 @@ public class FenetreAdministration extends JFrame {
 
         gestion.add(ajouter);
         gestion.add(supprimer);
-
+        gestion.add(listeUtilisateurP3);
+        gestion.add(listeUtilisateurP4);
         file.add(propos);
         file.add(quitter);
 
@@ -71,14 +79,13 @@ public class FenetreAdministration extends JFrame {
 
         P1 = new PanelAjouter();
         P2 = new PanelSupprimer();
-        JPanel P3 = new JPanel();
-        JPanel P4 = new JPanel();
+        P3 = new PanelListeUtilisateur();
+        P4 = new PanelListeUtilisateur();
         JPanel P5 = new JPanel();
         JPanel P6 = new JPanel();
 
         P1.setLayout(new BorderLayout());
         P2.setLayout(new BorderLayout());
-        P3.setLayout(new BorderLayout());
         P3.setLayout(new BorderLayout());
         P4.setLayout(new BorderLayout());
         P5.setLayout(new BorderLayout());
@@ -134,6 +141,9 @@ public class FenetreAdministration extends JFrame {
         this.quitter.addActionListener(buttonlistener);
         this.ajouter.addActionListener(buttonlistener);
         this.supprimer.addActionListener(buttonlistener);
+
+        this.listeUtilisateurP3.addActionListener(buttonlistener);
+
         this.setContentPane(main);
         this.setVisible(true);
         this.setSize(1200, 600);
@@ -149,6 +159,10 @@ public class FenetreAdministration extends JFrame {
 
     public JMenuItem getAjouter() {
         return ajouter;
+    }
+
+    public JMenuItem getListeUtilisateur() {
+        return listeUtilisateurP3;
     }
 
     public Utilisateur getUserConnected() {
@@ -173,5 +187,9 @@ public class FenetreAdministration extends JFrame {
 
     public PanelSupprimer getP2() {
         return P2;
+    }
+
+    public PanelListeUtilisateur getP3(){
+        return  P3;
     }
 }

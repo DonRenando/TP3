@@ -37,5 +37,9 @@ public class ListenerAdministration implements ActionListener {
         else if(actionEvent.getSource().equals(f.getP2().getSupprimer()))
             f.getP2().valider(f.getListeUser(), f.getFileSave());
 
+        else if(actionEvent.getSource().equals(f.getP2().getSupprimer()))
+            f.getP2().valider(f.getListeUser(), f.getFileSave());
+
+
     }
 }
