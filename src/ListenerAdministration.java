@@ -19,6 +19,10 @@ public class ListenerAdministration implements ActionListener {
         else if(actionEvent.getSource().equals(f.getQuitter()))
             System.exit(0);
 
+        else if(actionEvent.getSource().equals(f.getListeUtilisateur())){
+            f.getP3().showListe();
+        }
+
         else if(actionEvent.getSource().equals(f.getAjouter()))
             f.getP1().showForm(this, f.getListeUser());
 

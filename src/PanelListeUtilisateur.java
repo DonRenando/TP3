@@ -30,7 +30,7 @@ public class PanelListeUtilisateur extends JPanel {
                 {"Eric", "Trump", Color.pink, true},
         };
 
-        String[] entetes = {"Prénom", "Nom", "Couleur favorite", "Homme", "Sport"};
+        String[] entetes = {"Prénom", "Nom", "Couleur favorite", "Homme"};
 
         JTable tableau = new JTable(donnees, entetes);
 
