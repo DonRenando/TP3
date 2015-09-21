@@ -21,6 +21,10 @@ public class Personne implements Serializable{
         return nom;
     }
 
+    public void setRole(int role) {
+        this.role = role;
+    }
+
     public void setNom(String nom) {
         this.nom = nom;
     }

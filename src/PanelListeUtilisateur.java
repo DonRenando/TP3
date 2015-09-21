@@ -20,9 +20,6 @@ public class PanelListeUtilisateur extends JPanel {
 
     public void showListe(ListeUtilisateursImpl listeUser){
 
-
-
-
         tableListe = new JTable(listeUser);
 
         JScrollPane container = new JScrollPane(tableListe);

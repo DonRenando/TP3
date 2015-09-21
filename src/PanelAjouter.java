@@ -94,7 +94,7 @@ public class PanelAjouter extends JPanel {
                 comboBoxSuperieur.getSelectedItem() != null ?
                         comboBoxSuperieur.getSelectedItem().toString() : ""));
         userList.sauverListe(f);
-        annuler();
+        //annuler();
     }
 
     public JButton getAnnuler() {

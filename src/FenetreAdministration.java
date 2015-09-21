@@ -1,15 +1,11 @@
 import metier.ListeUtilisateursImpl;
 import metier.Utilisateur;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.KeyEvent;
-import java.io.File;
-
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.io.File;
 
 public class FenetreAdministration extends JFrame {
     private ListeUtilisateursImpl userlist;
@@ -108,18 +104,14 @@ public class FenetreAdministration extends JFrame {
         P3.setBorder(titleNorthBorder3);
 
 
-
         TitledBorder titleNorthBorder4 = new TitledBorder("P4");
         titleNorthBorder4.setTitleFont(new Font("Arial", Font.BOLD, 15));
         P4.setBorder(titleNorthBorder4);
 
 
-
-
         TitledBorder titleNorthBorder5 = new TitledBorder("P5");
         titleNorthBorder5.setTitleFont(new Font("Arial", Font.BOLD, 15));
         P5.setBorder(titleNorthBorder5);
-
 
 
         TitledBorder titleNorthBorder6 = new TitledBorder("P6");
@@ -143,6 +135,7 @@ public class FenetreAdministration extends JFrame {
         this.supprimer.addActionListener(buttonlistener);
 
         this.listeUtilisateurP3.addActionListener(buttonlistener);
+        this.listeUtilisateurP4.addActionListener(buttonlistener);
 
         this.setContentPane(main);
         this.setVisible(true);
@@ -161,8 +154,12 @@ public class FenetreAdministration extends JFrame {
         return ajouter;
     }
 
-    public JMenuItem getListeUtilisateur() {
+    public JMenuItem getListeUtilisateurP3() {
         return listeUtilisateurP3;
+    }
+
+    public JMenuItem getListeUtilisateurP4() {
+        return listeUtilisateurP4;
     }
 
     public Utilisateur getUserConnected() {
@@ -173,7 +170,7 @@ public class FenetreAdministration extends JFrame {
         return supprimer;
     }
 
-    public PanelAjouter getP1 () {
+    public PanelAjouter getP1() {
         return P1;
     }
 
@@ -189,7 +186,9 @@ public class FenetreAdministration extends JFrame {
         return P2;
     }
 
-    public PanelListeUtilisateur getP3(){
-        return  P3;
+    public PanelListeUtilisateur getP3() {
+        return P3;
+    }public PanelListeUtilisateur getP4() {
+        return P4;
     }
 }

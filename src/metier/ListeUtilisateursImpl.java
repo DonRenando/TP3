@@ -5,6 +5,8 @@
  */
 package metier;
 
+import javax.swing.event.EventListenerList;
+import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
@@ -17,21 +19,26 @@ import java.util.logging.Logger;
 /**
  * @author Jean-Christophe
  */
-public class ListeUtilisateursImpl  extends AbstractTableModel implements ListeUtilisateurs{
+public class ListeUtilisateursImpl  implements ListeUtilisateurs, TableModel{
     // Attributs
-    List<Utilisateur> liste;
+    private List<Utilisateur> liste;
+    private ArrayList<TableModelListener> t;
 
     // Le constructeur et les méthodes
 
     public ListeUtilisateursImpl() {
         liste = new ArrayList<Utilisateur>();
+        t = new ArrayList<TableModelListener>();
     }
 
 
     @Override
     public void ajouterUtilisateur(Utilisateur u) {
         liste.add(u);
+        fireTableDataChanged();
+       // fireTableRowsInserted(liste.size()-1,liste.size()-1);
     }
+
 
     @Override
     public Utilisateur obtenirUtilisateur(int numeroLigne) {
@@ -41,7 +48,11 @@ public class ListeUtilisateursImpl  extends AbstractTableModel implements ListeU
     @Override
     public void supprimerUtilisateur(int numeroLigne) {
         liste.remove(numeroLigne);
+        fireTableDataChanged();
+       //fireTableRowsDeleted(numeroLigne, numeroLigne);
     }
+
+
 
     @Override
     public int obtenirNumeroLigneUtilisateur(String login) {
@@ -146,6 +157,16 @@ public class ListeUtilisateursImpl  extends AbstractTableModel implements ListeU
     }
 
     @Override
+    public Class<?> getColumnClass(int i) {
+        return (i == 2) ? Integer.class : String.class;
+    }
+
+    @Override
+    public boolean isCellEditable(int i, int i1) {
+        return (i1 != 0);
+    }
+
+    @Override
     public Object getValueAt(int lig, int col) {
 
         switch (col){
@@ -153,11 +174,51 @@ public class ListeUtilisateursImpl  extends AbstractTableModel implements ListeU
                 return obtenirUtilisateur(lig).getLogin();
             case 1 :
                 return obtenirUtilisateur(lig).getNom();
-
             case 2 :
                 return obtenirUtilisateur(lig).getRole();
         }
         return null;
     }
+
+    public void setValueAt(Object value, int row, int col) {
+        switch (col){
+            case 0:
+               return;
+            case 1 :
+                obtenirUtilisateur(row).setNom((String) value);
+                fireTableDataChanged();
+                break;
+            case 2 :
+                obtenirUtilisateur(row).setRole((int) value);
+                fireTableDataChanged();
+                break;
+
+            default:
+                fireTableDataChanged();
+        }
+
+
+    }
+
+
+    @Override
+    public void addTableModelListener(TableModelListener tableModelListener) {
+        t.add(tableModelListener);
+    }
+
+    @Override
+    public void removeTableModelListener(TableModelListener tableModelListener) {
+        t.remove(tableModelListener);
+    }
+
+
+    private void fireTableDataChanged(){
+        for(TableModelListener i : t){
+            i.tableChanged(new TableModelEvent(this));
+
+        }
+
+    }
+
 
 }

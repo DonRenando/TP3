@@ -55,6 +55,6 @@ public class PanelSupprimer extends JPanel{
     public void valider(ListeUtilisateursImpl listeUser, File fileSave) {
         listeUser.supprimerUtilisateur(listeUser.obtenirNumeroLigneUtilisateur(comboBoxListe.getSelectedItem().toString()));
         listeUser.sauverListe(fileSave);
-        annuler();
+        //annuler();
     }
 }
