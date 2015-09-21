@@ -20,7 +20,7 @@ public class ListenerAdministration implements ActionListener {
             System.exit(0);
 
         else if(actionEvent.getSource().equals(f.getListeUtilisateur())){
-            f.getP3().showListe();
+            f.getP3().showListe(f.getListeUser());
         }
 
         else if(actionEvent.getSource().equals(f.getAjouter()))

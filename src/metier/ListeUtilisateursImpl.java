@@ -6,6 +6,7 @@
 package metier;
 
 import javax.swing.event.TableModelListener;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 import java.io.*;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
 /**
  * @author Jean-Christophe
  */
-public class ListeUtilisateursImpl implements ListeUtilisateurs, TableModel{
+public class ListeUtilisateursImpl  extends AbstractTableModel implements ListeUtilisateurs{
     // Attributs
     List<Utilisateur> liste;
 
@@ -131,37 +132,32 @@ public class ListeUtilisateursImpl implements ListeUtilisateurs, TableModel{
     }
 
     @Override
-    public String getColumnName(int i) {
+    public String getColumnName(int column){
+        switch (column){
+            case 0:
+                return "Identifiant";
+            case 1 :
+                return "Nom";
+
+            case 2 :
+                return "Role";
+        }
         return null;
     }
 
     @Override
-    public Class<?> getColumnClass(int i) {
+    public Object getValueAt(int lig, int col) {
+
+        switch (col){
+            case 0:
+                return obtenirUtilisateur(lig).getLogin();
+            case 1 :
+                return obtenirUtilisateur(lig).getNom();
+
+            case 2 :
+                return obtenirUtilisateur(lig).getRole();
+        }
         return null;
     }
 
-    @Override
-    public boolean isCellEditable(int i, int i1) {
-        return false;
-    }
-
-    @Override
-    public Object getValueAt(int i, int i1) {
-        return null;
-    }
-
-    @Override
-    public void setValueAt(Object o, int i, int i1) {
-
-    }
-
-    @Override
-    public void addTableModelListener(TableModelListener tableModelListener) {
-
-    }
-
-    @Override
-    public void removeTableModelListener(TableModelListener tableModelListener) {
-
-    }
 }

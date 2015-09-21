@@ -1,6 +1,10 @@
+import metier.ListeUtilisateursImpl;
+
 import javax.swing.*;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by renando on 21/09/15.
@@ -10,31 +14,19 @@ public class PanelListeUtilisateur extends JPanel {
     private JTable tableListe;
     public PanelListeUtilisateur(){
         super();
+        setLayout(new BorderLayout());
     }
 
 
-    public void showListe(){
+    public void showListe(ListeUtilisateursImpl listeUser){
 
-        JPanel container = new JPanel();
-        this.add(container);
 
-        tableListe = new JTable();
 
-        Object[][] donnees = {
-                {"Johnathan", "Sykes", Color.red, true },
-                {"Nicolas", "Van de Kampf", Color.black, true},
-                {"Damien", "Cuthbert", Color.cyan, true },
-                {"Corinne", "Valance", Color.blue, false},
-                {"Emilie", "Schrödinger", Color.magenta, false},
-                {"Delphine", "Duke", Color.yellow, false},
-                {"Eric", "Trump", Color.pink, true},
-        };
 
-        String[] entetes = {"Prénom", "Nom", "Couleur favorite", "Homme"};
+        tableListe = new JTable(listeUser);
 
-        JTable tableau = new JTable(donnees, entetes);
-
-        container.add(tableau);
+        JScrollPane container = new JScrollPane(tableListe);
+        this.add(container,BorderLayout.CENTER);
 
         this.validate();
     }
