@@ -86,7 +86,7 @@ public class PanelAjouter extends JPanel {
     }
 
     public void valider(ListeUtilisateursImpl userList, File f) {
-        Integer role = Personne.getRolebyName(comboBoxRole.getSelectedItem().toString());
+        String role = Personne.getRolebyName(comboBoxRole.getSelectedItem().toString());
 
         userList.ajouterUtilisateur(new Utilisateur(textFieldNom.getText(), textFieldFirstName.getText(),
                 role, textFieldLogin.getText(),

@@ -158,7 +158,7 @@ public class ListeUtilisateursImpl  implements ListeUtilisateurs, TableModel{
 
     @Override
     public Class<?> getColumnClass(int i) {
-        return (i == 2) ? Integer.class : String.class;
+        return  String.class;
     }
 
     @Override
@@ -177,6 +177,7 @@ public class ListeUtilisateursImpl  implements ListeUtilisateurs, TableModel{
             case 2 :
                 return obtenirUtilisateur(lig).getRole();
         }
+
         return null;
     }
 
@@ -189,7 +190,7 @@ public class ListeUtilisateursImpl  implements ListeUtilisateurs, TableModel{
                 fireTableDataChanged();
                 break;
             case 2 :
-                obtenirUtilisateur(row).setRole((int) value);
+                obtenirUtilisateur(row).setRole((String) value);
                 fireTableDataChanged();
                 break;
 

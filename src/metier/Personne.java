@@ -4,14 +4,13 @@ import java.io.Serializable;
 
 public class Personne implements Serializable{
     // Les attributs
-    protected String nom, prenom;
-    protected Integer role;
+    protected String nom, prenom, role;
 
     // Les constantes
-    public static final Integer ADMINISTRATEUR = 0, STATISTICIEN = 1, INFIRMIER = 2, PATIENT = 3; // Ce sont les valeurs que peut prendre l'attribut role
+    public static final String ADMINISTRATEUR = "0", STATISTICIEN = "1", INFIRMIER = "2", PATIENT = "3"; // Ce sont les valeurs que peut prendre l'attribut role
 
     // Les constructeurs et méthodes
-    public Personne(String nom, String prenom, Integer role) {
+    public Personne(String nom, String prenom, String role) {
         this.nom = nom;
         this.prenom = prenom;
         this.role = role;
@@ -21,7 +20,7 @@ public class Personne implements Serializable{
         return nom;
     }
 
-    public void setRole(int role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
@@ -41,9 +40,9 @@ public class Personne implements Serializable{
         return nom + " " + prenom + " avec rôle " + Personne.getNamebyRole(role);
     }
 
-    public Integer getRole() {return role;}
+    public String getRole() {return role;}
 
-    public static Integer getRolebyName(String name) {
+    public static String getRolebyName(String name) {
         switch (name) {
             case "ADMINISTRATEUR":
                 return Personne.ADMINISTRATEUR;
@@ -57,7 +56,7 @@ public class Personne implements Serializable{
         return null;
     }
 
-    public static String getNamebyRole(Integer num) {
+    public static String getNamebyRole(String num) {
         if (num.equals(Personne.ADMINISTRATEUR))
                 return "ADMINISTRATEUR";
         if (num.equals(Personne.STATISTICIEN))

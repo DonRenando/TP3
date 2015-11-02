@@ -1,6 +1,7 @@
 import metier.ListeUtilisateursImpl;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import java.awt.*;
@@ -21,6 +22,7 @@ public class PanelListeUtilisateur extends JPanel {
     public void showListe(ListeUtilisateursImpl listeUser){
 
         tableListe = new JTable(listeUser);
+        tableListe.setDefaultRenderer(Object.class, new ColorCell());
 
         JScrollPane container = new JScrollPane(tableListe);
         this.add(container,BorderLayout.CENTER);

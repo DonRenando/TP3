@@ -7,7 +7,7 @@ public class Utilisateur extends Personne {
     protected String login, password, loginSuperieur;
 
     // Constructeur et méthodes
-    public Utilisateur(String nom, String prenom, Integer role, String login, String password, String loginSuperieur) {
+    public Utilisateur(String nom, String prenom, String role, String login, String password, String loginSuperieur) {
         super(nom, prenom, role);
         this.login = login;
         this.password = password;
